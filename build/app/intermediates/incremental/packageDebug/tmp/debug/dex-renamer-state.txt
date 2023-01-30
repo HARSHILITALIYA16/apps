@@ -1,4 +1,4 @@
-#Mon Jan 30 11:49:52 IST 2023
-base.0=/Volumes/DATA/StudioProjects/apps/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Mon Jan 30 12:17:15 IST 2023
+base.0=/Users/a1234/Desktop/apps/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

@@ -60,7 +60,7 @@ class _Home_PageState extends State<Home_Page> {
             backgroundColor: Colors.transparent,
             elevation: 0),
         body: ApiHolderObj1 == null
-            ? CircularProgressIndicator()
+            ? Center(child: CircularProgressIndicator())
             : Padding(
                 padding: const EdgeInsets.only(
                     left: 12.0, right: 8, top: 10, bottom: 15),
@@ -82,6 +82,9 @@ class _Home_PageState extends State<Home_Page> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          ApiHolderObj1!
+                                        .results!.first.artworkUrl512
+                                        .toString()==null?CircularProgressIndicator():
                           Container(
                             clipBehavior: Clip.antiAlias,
                             height: 140,
@@ -90,7 +93,8 @@ class _Home_PageState extends State<Home_Page> {
                                 borderRadius: BorderRadius.circular(20),
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: NetworkImage(ApiHolderObj1!
+                                    image: NetworkImage(
+                                      ApiHolderObj1!
                                         .results!.first.artworkUrl512
                                         .toString()))),
                           ),
@@ -192,8 +196,17 @@ class _Home_PageState extends State<Home_Page> {
                             child: Container(
                               height: MediaQuery.of(context).size.height * 0.5,
                               width: MediaQuery.of(context).size.width / 2,
-                              child: Image.network(ApiHolderObj1!
-                                  .results!.first.screenshotUrls![index]),
+                              child: Image.network(
+                                ApiHolderObj1!
+                                    .results!.first.screenshotUrls![index],
+                                loadingBuilder:
+                                    (context, child, loadingProgress) {
+                                  return loadingProgress?.expectedTotalBytes !=
+                                          null
+                                      ? Center(child: CircularProgressIndicator())
+                                      : child;
+                                },
+                              ),
                             ),
                           );
                         },
