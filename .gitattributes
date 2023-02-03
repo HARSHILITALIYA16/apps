@@ -1,1 +1,6 @@
 *.dart linguist-detectable=true
+*.html linguist-detectable=false
+*.java linguist-detectable=false
+*.rugby linguist-detectable=false
+*.swift linguist-detectable=false
+*.Makefile linguist-detectable=false
